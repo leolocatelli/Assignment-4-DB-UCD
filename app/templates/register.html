@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote - Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        .error-message {
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-primary-pages">
+
+    <header>
+        <a href="{{ url_for('main.index') }}" class="link-form">
+            <img src="{{ url_for('static', filename='images/logo_quote.png') }}" alt="quote logo" class="quote_logo">
+        </a>
+    </header>
+
+    <main>
+        <div>
+            <form id="register-form" action="{{ url_for('main.register') }}" method="POST" class="form-container">
+                <input type="text" name="name" id="name" class="input-login" placeholder="Name" required>
+                <input type="text" name="username" id="username" class="input-login" placeholder="User" required>
+                <div class="password-wrapper">
+                    <input type="password" name="password" id="password" class="input-password" placeholder="Password"
+                        required>
+                    <img src="{{ url_for('static', filename='images/close-eye.png') }}" alt="Toggle Password Visibility"
+                        class="toggle-password" id="togglePassword">
+                </div>
+                <div class="password-wrapper">
+                    <input type="password" name="confirmPassword" id="confirmPassword" class="input-password"
+                        placeholder="Confirm Password" required>
+                    <img src="{{ url_for('static', filename='images/close-eye.png') }}" alt="Toggle Password Visibility"
+                        class="toggle-password" id="toggleConfirmPassword">
+                </div>
+                <span id="error-message" class="error-message">{{ error }}</span>
+                <a href="{{ url_for('main.login') }}" class="link-form">
+                    <p class="text-form">Already have an account? Sign-in here</p>
+                </a>
+                <button type="submit" class="register">Create</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <a href="{{ url_for('main.index') }}" class="link-form">
+            <p class="logo-footer">Quote</p>
+        </a>
+    </footer>
+
+    <script>
+        const openEyeIcon = "{{ url_for('static', filename='images/open-eye.png') }}";
+        const closeEyeIcon = "{{ url_for('static', filename='images/close-eye.png') }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+
+</html>
